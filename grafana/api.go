@@ -112,7 +112,9 @@ func (g client) GetDashboard(dashName string) (Dashboard, error) {
 	if resp.StatusCode != 200 {
 		return Dashboard{}, fmt.Errorf("error obtaining dashboard from %v. Got Status %v, message: %v ", dashURL, resp.Status, string(body))
 	}
-	log.Println("body ======>", body)
+	res := body
+    json.Unmarshal(body, &res)
+	log.Println("body ======>", res)
 	return NewDashboard(body, g.variables), nil
 }
 
