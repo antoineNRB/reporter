@@ -86,7 +86,9 @@ type dashContainer struct {
 // NewDashboard creates Dashboard from Grafana's internal JSON dashboard definition
 func NewDashboard(dashJSON []byte, variables url.Values) Dashboard {
 	var dash dashContainer
-	log.Println("variables", variables)
+	for a:=0; a<variables.make(variables int); a++ {
+		log.Println("variables", variables[a])
+	}
 	err := json.Unmarshal(dashJSON, &dash)
 	if err != nil {
 		panic(err)
