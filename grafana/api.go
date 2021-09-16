@@ -97,6 +97,7 @@ func (g client) GetDashboard(dashName string) (Dashboard, error) {
 
 	if g.apiToken != "" {
 		req.Header.Add("Authorization", "Bearer "+g.apiToken)
+		req.Header.Add("Access-Control-Allow-Origin", "*")
 	}
 	resp, err := client.Do(req)
 	if err != nil {
