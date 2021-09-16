@@ -88,7 +88,7 @@ func NewDashboard(dashJSON []byte, variables url.Values) Dashboard {
 	var dash dashContainer
 	log.Println("variables ?")
 
-	for key, value := range variables {
+	for key, value := range url.Values {
 		log.Println("variables", key, value)
 	}
 	err := json.Unmarshal(dashJSON, &dash)
