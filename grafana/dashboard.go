@@ -106,10 +106,10 @@ func (dc dashContainer) NewDashboard(variables url.Values) Dashboard {
 	dash.Description = sanitizeLaTexInput(dc.Dashboard.Description)
 	dash.VariableValues = sanitizeLaTexInput(getVariablesValues(variables))
 
-	if len(dc.Dashboard.Rows) == 0 {
-		return populatePanelsFromV5JSON(dash, dc)
-	}
-	return populatePanelsFromV4JSON(dash, dc)
+	// if len(dc.Dashboard.Rows) == 0 {
+	return populatePanelsFromV5JSON(dash, dc)
+	// }
+	// return populatePanelsFromV4JSON(dash, dc)
 }
 
 func populatePanelsFromV4JSON(dash Dashboard, dc dashContainer) Dashboard {
