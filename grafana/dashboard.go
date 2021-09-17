@@ -90,17 +90,17 @@ func NewDashboard(dashJSON []byte, variables url.Values) Dashboard {
 	// for key, value := range url.Values {
 	// 	log.Println("variables", key, value)
 	// }
-	var jsonStr string
-	err2 := json.Unmarshal(dashJSON, &jsonStr)
-	if err2 != nil {
-		panic(err2)
-	}
+	// var jsonStr string
+	// err2 := json.Unmarshal(dashJSON, &jsonStr)
+	// if err2 != nil {
+	// 	panic(err2)
+	// }
 	err := json.Unmarshal(dashJSON, &dash)
 	if err != nil {
 		panic(err)
 	}
 	d := dash.NewDashboard(variables)
-	log.Println("dashboard raw json", jsonStr)
+	log.Println("dashboard raw json", string(dashJSON))
 	log.Printf("Populated dashboard datastructure: %+v\n", d)
 	return d
 }
