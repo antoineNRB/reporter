@@ -113,6 +113,7 @@ func (dc dashContainer) NewDashboard(variables url.Values) Dashboard {
 }
 
 func populatePanelsFromV4JSON(dash Dashboard, dc dashContainer) Dashboard {
+	log.Println("from v4")
 	for _, row := range dc.Dashboard.Rows {
 		row.Title = sanitizeLaTexInput(row.Title)
 		for i, p := range row.Panels {
@@ -127,6 +128,8 @@ func populatePanelsFromV4JSON(dash Dashboard, dc dashContainer) Dashboard {
 }
 
 func populatePanelsFromV5JSON(dash Dashboard, dc dashContainer) Dashboard {
+	log.Println("from v5")
+
 	for _, p := range dc.Dashboard.Panels {
 		if p.Type == "row" {
 			continue
